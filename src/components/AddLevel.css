@@ -1,0 +1,255 @@
+.newLevelBtn {
+  background: #1472e8;
+  box-shadow: 0px 2px 12px rgba(20, 114, 232, 0.3);
+  border-radius: 15px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.modal-content {
+  background: #ffffff;
+  box-shadow: 0px 2px 20px rgba(222, 224, 226, 0.2);
+  border-radius: 9px;
+}
+
+.modal-title {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  color: #333333;
+}
+
+label {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: #1a1a1a;
+  margin-top: 20px;
+}
+
+.FormControl {
+  border: 1px solid #e6e6e6;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+.FormControl:focus {
+  outline: white;
+}
+
+.FormControl::placeholder {
+  /* font-size: 12px; */
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: #1a1a1a;
+  mix-blend-mode: normal;
+  opacity: 0.7;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+.collapseView {
+  border: 1px solid #e6e6e6;
+  box-sizing: border-box;
+  border-radius: 20px;
+  margin-top: 20px;
+  background-color: #fafafa;
+}
+
+/* switch style */
+.custom-switch .custom-control-label::before {
+  width: 40px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: #f2f2f2;
+  border: none;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+  background: #fdb814;
+  /* border: 1px solid; */
+  width: 40px;
+  height: 20px;
+}
+
+.custom-switch .custom-control-label::after {
+  top: calc(0.25rem + 0px);
+  left: calc(-2.25rem + 0px);
+  width: 20px;
+  height: 20px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.16), 0px 2px 4px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+}
+.custom-switch .custom-control-input:checked ~ .custom-control-label::after {
+  transform: translateX(1.35rem);
+}
+
+.switchButton {
+  position: absolute;
+  right: 40px;
+  margin-top: -40px;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+.submitButton {
+  width: 100% !important;
+  background: #fdb814;
+  border-radius: 40px;
+}
+
+/* collapseView style */
+.showCollapseView {
+  display: block;
+}
+
+.disableCollapseView {
+  display: none;
+}
+
+.collapseViewHeader {
+  background-color: #ffffff;
+  padding: 16px 20px;
+  border-radius: 20px;
+}
+
+.collapseViewDescription {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  padding: 0;
+}
+
+.radioButtonContainer {
+  margin: 8px;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.radioButton {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+}
+
+input[type="radio"]:after {
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  top: -2px;
+  position: relative;
+  background-color: #ffffff;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid #e9ecef;
+}
+
+input[type="radio"]:checked:after {
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  top: -2px;
+  position: relative;
+  background-color: #fdb814;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 20px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: #1a1a1a;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  background-color: #ccc;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  height: 12px;
+  width: 12px;
+  background-color: #eee;
+  border-radius: 3px;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #eee;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #fdb814;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 26.67%;
+  right: 16.67%;
+  top: 10%;
+  bottom: 25%;
+  width: 5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
