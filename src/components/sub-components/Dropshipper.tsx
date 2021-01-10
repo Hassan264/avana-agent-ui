@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Collapse, FormCheck, FormControl } from "react-bootstrap";
 
+import "../AddLevel.css";
+
 export default function Dropshipper() {
   const [openDropshipper, setDropshipperOpen] = useState(false);
   const [howMany, setHowMany] = useState("");

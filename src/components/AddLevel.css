@@ -57,12 +57,12 @@ label {
   opacity: 0.7;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0; 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
 }
 
 .collapseView {
@@ -115,6 +115,11 @@ input[type=number]::-webkit-outer-spin-button {
   width: 100% !important;
   background: #fdb814;
   border-radius: 40px;
+}
+
+.submitButton:disabled {
+  background: #f2f2f2;
+  border: 1px solid #e6e6e6;
 }
 
 /* collapseView style */
@@ -181,7 +186,7 @@ input[type="radio"]:checked:after {
   border: 2px solid white;
 }
 
-.container {
+.checkboxContainer {
   display: block;
   position: relative;
   padding-left: 20px;
@@ -199,7 +204,7 @@ input[type="radio"]:checked:after {
 }
 
 /* Hide the browser's default checkbox */
-.container input {
+.checkboxContainer input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -220,12 +225,12 @@ input[type="radio"]:checked:after {
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
+.checkboxContainer:hover input ~ .checkmark {
   background-color: #eee;
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.checkboxContainer input:checked ~ .checkmark {
   background-color: #fdb814;
 }
 
@@ -237,12 +242,12 @@ input[type="radio"]:checked:after {
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.checkboxContainer input:checked ~ .checkmark:after {
   display: block;
 }
 
 /* Style the checkmark/indicator */
-.container .checkmark:after {
+.checkboxContainer .checkmark:after {
   left: 26.67%;
   right: 16.67%;
   top: 10%;
@@ -252,4 +257,71 @@ input[type="radio"]:checked:after {
   border: solid white;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
+}
+
+/* commission type */
+.setCommissionTypeModal .modal-content {
+  min-height: 500px;
+}
+
+.setCommissionTypeAnchor {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #0065ff;
+}
+
+.levelNameInputGroup {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  color: #1a1a1a;
+  mix-blend-mode: normal;
+}
+
+.commissionTypeSelect {
+  display: inline-block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  vertical-align: middle;
+  background: #fff url("../arrow.svg") no-repeat right 0.75rem center/24px 24px;
+  -webkit-appearance: none;
+  appearance: none;
+  border: 1px solid #e6e6e6;
+  box-sizing: border-box;
+  border-radius: 20px;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+
+.productTitle {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.productQuantity {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  color: #999999;
+}
+
+.productPrice {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  color: #f26522;
 }

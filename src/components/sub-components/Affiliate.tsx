@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Col, Collapse, FormCheck, FormControl, Row } from "react-bootstrap";
 
+import "../AddLevel.css";
+
 export default function Affiliate() {
   const [openAffiliate, setAffiliateOpen] = useState(false);
   const [commissionCondition, setCommissionCondition] = useState("");
@@ -72,7 +74,7 @@ export default function Affiliate() {
               <span>Per Order</span>
             </Col>
           </Row>
-          <label className="container">
+          <label className="checkboxContainer">
             Apply in percentage (%)
             <input type="checkbox" onChange={handlePercentageChange} />
             <span className="checkmark"></span>

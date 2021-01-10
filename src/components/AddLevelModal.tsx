@@ -11,12 +11,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./AddLevel.css";
 
-import Stockist from "./Stockist";
-import OverridingCommission from "./OverridingCommission";
-import Dropshipper from "./Dropshipper";
-import Affiliate from "./Affiliate";
+import Stockist from "./sub-components/Stockist";
+import OverridingCommission from "./sub-components/OverridingCommission";
+import Dropshipper from "./sub-components/Dropshipper";
+import Affiliate from "./sub-components/Affiliate";
 
-export default function AddLevel() {
+export default function AddLevelModal() {
   const [show, setShow] = useState(false);
   const [levelName, setLevelName] = useState("");
   const [levelDescription, setLevelDescription] = useState("");

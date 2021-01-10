@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Collapse, FormCheck, FormControl } from "react-bootstrap";
 
-import "./AddLevel.css";
+import "../AddLevel.css";
 
 export default function OverridingCommission() {
   const [openOverridingCommission, setOverridingCommissionOpen] = useState(
