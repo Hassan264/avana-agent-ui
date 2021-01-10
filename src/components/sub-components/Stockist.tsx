@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Col, Collapse, FormCheck, FormControl, Row } from "react-bootstrap";
 
-import "./AddLevel.css";
+import "../AddLevel.css";
+
 export default function Stockist() {
   const [openStockist, setOpenStockist] = useState(false);
   const [limits, setLimits] = useState("");
