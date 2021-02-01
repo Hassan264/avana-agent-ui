@@ -9,9 +9,11 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path={"/add-level"} component={AddLevelModal} />
+        <Route path={"/add-level"} >
+          <AddLevelModal id="addLevelId"/>
+        </Route>
         <Route path={"/commission-type"} >
-          <CommissionTypeModal levelName="Senior Agent" />
+          <CommissionTypeModal levelName="Senior Agent" id="79823e8b-b9f3-4be2-8135-01202c952a87-1609946945050" />
           </Route>
       </Switch>
     </Router>

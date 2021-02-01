@@ -3,49 +3,78 @@ import { Col, Collapse, FormCheck, FormControl, Row } from "react-bootstrap";
 
 import "../AddLevel.css";
 
-export default function Stockist() {
+export interface StockistType {
+  active: boolean;
+  limits?: string;
+  minPurchased?: string;
+  maxPurchased?: string;
+  limitedNumber?: string;
+  addAgents?: boolean;
+}
+interface Props {
+  stockistDone: (stockist: StockistType) => void;
+}
+
+export function Stockist(props: Props) {
   const [openStockist, setOpenStockist] = useState(false);
-  const [limits, setLimits] = useState("");
-  const [minPurchased, setMinPurchased] = useState("");
-  const [maxPurchased, setMaxPurchased] = useState("");
-  const [limitedNumber, setLimitedNumber] = useState("");
+  const [limits, setLimits] = useState<string>();
+  const [minPurchased, setMinPurchased] = useState<string>();
+  const [maxPurchased, setMaxPurchased] = useState<string>();
+  const [limitedNumber, setLimitedNumber] = useState<string>();
   const [addAgents, setAddAgents] = useState(false);
+
+  let stockist: StockistType = {
+    active: openStockist,
+    addAgents: addAgents,
+    limits,
+    minPurchased,
+    maxPurchased,
+    limitedNumber
+  };
+
+  const onSwitchChange = () => {
+    setOpenStockist(!openStockist);
+    stockist.active = !openStockist;
+    props.stockistDone(stockist);
+  };
 
   const handleSetLimitsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLimits(e.target.value);
+    stockist.limits = e.target.value;
+    props.stockistDone(stockist);
   };
 
   const handleChangeMinPurchased = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMinPurchased(e.target.value);
+    stockist.minPurchased = e.target.value;
+    props.stockistDone(stockist);
   };
 
   const handleChangeMaxPurchased = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMaxPurchased(e.target.value);
+    stockist.maxPurchased = e.target.value;
+    props.stockistDone(stockist);
   };
 
   const handleChangeLimitedNumber = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     setLimitedNumber(e.target.value);
+    stockist.limitedNumber = e.target.value;
+    props.stockistDone(stockist);
   };
   const handleAddAgents = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAddAgents(e.target.checked);
+    stockist.addAgents = e.target.checked
+    props.stockistDone(stockist)
   };
-
-  console.log({
-    limits: limits,
-    minPurchased: minPurchased,
-    maxPurchased: maxPurchased,
-    limitedNumber: limitedNumber,
-    addAgents: addAgents,
-  });
 
   return (
     <div className="collapseView">
       <div className="collapseViewHeader">
         <label>Stockist</label>
         <FormCheck
-          onChange={() => setOpenStockist(!openStockist)}
+          onChange={onSwitchChange}
           className="switchButton"
           type="switch"
           id="stockist-custom-switch"

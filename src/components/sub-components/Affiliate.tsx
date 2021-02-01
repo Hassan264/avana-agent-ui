@@ -3,43 +3,77 @@ import { Col, Collapse, FormCheck, FormControl, Row } from "react-bootstrap";
 
 import "../AddLevel.css";
 
-export default function Affiliate() {
+export interface AffiliateType {
+  active: boolean,
+  commissionCondition?: string,
+  percentageChange?: boolean,
+  limitedNumber?: boolean,
+  howMany?: string
+}
+
+interface Props {
+  affiliateDone: (affiliate: AffiliateType) => void
+}
+
+export function Affiliate(props: Props) {
   const [openAffiliate, setAffiliateOpen] = useState(false);
-  const [commissionCondition, setCommissionCondition] = useState("");
+  const [commissionCondition, setCommissionCondition] = useState<string>();
   const [percentageChange, setPercentageChange] = useState(false);
   const [limitedNumber, setLimitedNumber] = useState(false)
-  const [howMany, setHowMany] = useState("")
+  const [howMany, setHowMany] = useState<string>()
+
+  const affiliate: AffiliateType = {
+    active: openAffiliate,
+    commissionCondition,
+    percentageChange,
+    limitedNumber,
+    howMany
+  }
+
+  const onSwitchChange = () => {
+    setAffiliateOpen(!openAffiliate)
+    affiliate.active = openAffiliate
+    props.affiliateDone(affiliate)
+  }
 
   const handleCommissionConditionChange = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     setCommissionCondition(e.target.value);
+    affiliate.commissionCondition = e.target.value
+    props.affiliateDone(affiliate)
   };
 
   const handlePercentageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPercentageChange(e.target.checked);
+    affiliate.percentageChange = e.target.checked
+    props.affiliateDone(affiliate)
   };
 
   const handleLimitedNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLimitedNumber(e.target.checked)
+    affiliate.limitedNumber = e.target.checked
+    props.affiliateDone(affiliate)
   }
 
   const handleHowManyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setHowMany(e.target.value)
+    affiliate.howMany = e.target.value
+    props.affiliateDone(affiliate)
   }
 
-  console.log({
-    commissionCondition: commissionCondition,
-    percentageChange: percentageChange,
-    limitedNumber: limitedNumber,
-    howMany: howMany
-  });
+  // console.log({
+  //   commissionCondition: commissionCondition,
+  //   percentageChange: percentageChange,
+  //   limitedNumber: limitedNumber,
+  //   howMany: howMany
+  // });
   return (
     <div className="collapseView">
       <div className="collapseViewHeader">
         <label>Affiliate</label>
         <FormCheck
-          onChange={() => setAffiliateOpen(!openAffiliate)}
+          onChange={onSwitchChange}
           className="switchButton"
           type="switch"
           id="affiliate-custom-switch"

@@ -3,21 +3,31 @@ import { Collapse, FormCheck, FormControl } from "react-bootstrap";
 
 import "../AddLevel.css";
 
-export default function Dropshipper() {
+interface Props {
+  dropshipperDone: (active: boolean, howMany?: string) => void;
+}
+
+export default function Dropshipper(props: Props) {
   const [openDropshipper, setDropshipperOpen] = useState(false);
-  const [howMany, setHowMany] = useState("");
+  const [howMany, setHowMany] = useState<string>();
+
+  const onSwitchChange = () => {
+    setDropshipperOpen(!openDropshipper)
+    props.dropshipperDone(!openDropshipper, howMany);
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setHowMany(e.target.value);
+    props.dropshipperDone(openDropshipper, e.target.value)
   };
 
-  console.log({ howMany: howMany });
+  // console.log({ howMany: howMany });
   return (
     <div className="collapseView">
       <div className="collapseViewHeader">
         <label>Dropshipper</label>
         <FormCheck
-          onChange={() => setDropshipperOpen(!openDropshipper)}
+          onChange={onSwitchChange}
           className="switchButton"
           type="switch"
           id="dropshipper-custom-switch"

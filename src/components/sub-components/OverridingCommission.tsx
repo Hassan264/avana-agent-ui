@@ -3,25 +3,35 @@ import { Collapse, FormCheck, FormControl } from "react-bootstrap";
 
 import "../AddLevel.css";
 
-export default function OverridingCommission() {
+interface Props {
+  overridingCommissionDone: (
+    active: boolean,
+    amount?: string
+  ) => void;
+}
+
+export default function OverridingCommission(props: Props) {
   const [openOverridingCommission, setOverridingCommissionOpen] = useState(
     false
   );
-  const [amount, setAmount] = useState("");
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAmount(e.target.value);
+  const [amount, setAmount] = useState<string>();
+
+  const onSwitchChange = () => {
+    setOverridingCommissionOpen(!openOverridingCommission);
+    props.overridingCommissionDone(!openOverridingCommission, amount);
   };
 
-  console.log(amount);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAmount(e.target.value);
+    props.overridingCommissionDone(openOverridingCommission, e.target.value);
+  };
 
   return (
     <div className="collapseView">
       <div className="collapseViewHeader">
         <label>Overriding Commission</label>
         <FormCheck
-          onChange={() =>
-            setOverridingCommissionOpen(!openOverridingCommission)
-          }
+          onChange={onSwitchChange}
           className="switchButton"
           type="switch"
           id="overriding-commission-custom-switch"
